@@ -50,4 +50,18 @@ public class EmpController {
         emailService.sendMail(payload.get("to"), payload.get("subject"), payload.get("message"));
         return ResponseEntity.ok().body("Email Sent");
     }
+
+    @Operation(
+            summary = "About Us",
+            description = "This endpoint is used to get company information"
+    )
+    @GetMapping("/aboutus")
+    public ResponseEntity<String> aboutUs(){
+        String info = """
+                Company Name: HPG Infotech,
+                uTube: CodeWithSatnam
+                """;
+        return ResponseEntity.ok().body(info);
+    }
+
 }
